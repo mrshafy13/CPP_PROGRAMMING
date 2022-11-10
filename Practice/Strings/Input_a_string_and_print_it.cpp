@@ -1,13 +1,12 @@
 #include <iostream>
+#include <string>
 const int max_size = 100;
 using namespace std;
 
 int main()
 {
-    char str[max_size];
-    cin.get(str, max_size);
-    
-    cout<<"The string you entered is : ";
-    cout << str <<endl;
+    string str;
+    getline(cin, str);
+    cout<<"The string you entered : "<< str <<endl;
     return 0;
 }
