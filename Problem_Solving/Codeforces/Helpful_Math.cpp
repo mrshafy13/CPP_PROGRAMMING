@@ -1,25 +1,42 @@
 #include <iostream>
 #include <string>
+#include <algorithm>  
 using namespace std;
 
 int main()
 {
     string str;
     cin >> str;
-    cout << str << endl;
 
     int len = str.size();
-    char temp;
-    for(int i = 0; i< len; i++)
+
+    int arr[len];
+
+    int count = 0;
+
+    for(int i = 0; i<len; i++)
     {
-        for(int j = 0; j < len-1; j++)
+        if(str[i]=='+')
         {
-            if(str[j]>str[j+2])
-            {
-                swap(str[j], str[j+2]);
-            }
+            continue;
+        }
+        else
+        {
+            arr[count++]=str[i]-'0';
         }
     }
-    cout << str << endl;
+
+    sort(arr, arr+count);
+
+    for(int i = 0; i<count; i++)
+    {
+        cout << arr[i];
+        if(i==count-1)
+        {
+            break;
+        }
+        cout <<"+";
+    }
+
     return 0;
 }
