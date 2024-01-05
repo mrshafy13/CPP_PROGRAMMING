@@ -1,57 +1,41 @@
-#include <bits/stdc++.h>
+//Bismillahir Rahmanir Raheem
+#include<bits/stdc++.h>
 using namespace std;
 
-const int mx = 4;
-int numbers[mx];
+const long long mx = 1e9;
+
+
+#define memset(a, b) memset(a,b,sizeof(a));
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
+#define endl "\n";
+
 int main()
 {
+    optimize();
     int t;
     cin >> t;
-    while (t--)
+    while(t--)
     {
-        long long n;
+        long long n, count = 0;
         cin >> n;
-        bool flag = false;
-        for (int i = n; i >= 1; i--)
+        if(n < 7 or n == 9)
         {
-            if (i % 3 == 0)
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
+            if(n % 3 == 0)
             {
-                i--;
+                cout << 1 << " " << 4 << " " << (n-5) << endl;
             }
-            for (int j = i - 1; j >= 1; j--)
+            else
             {
-                if (j % 3 == 0)
-                {
-                    j--;
-                }
-                for (int k = j - 1; k >= 1; k--)
-                {
-                    if (k % 3 == 0)
-                    {
-                        k--;
-                    }
-                    {
-                        if ((i + j + k) == n)
-                        {
-                            flag = true;
-                            numbers[1] = i;
-                            numbers[2] = j;
-                            numbers[3] = k;
-                            break;
-                        }
-                    }
-                }
+                cout << 1 << " " << 2 << " " << (n-3) << endl;
             }
         }
-        if (flag == true)
-            {
-                cout << "YES" << endl;
-                cout << numbers[1] << " " << numbers[2] << " " << numbers[3] << endl;
-            }
-            if (flag == false)
-            {
-                cout << "NO" << endl;
-            }
+        
     }
     return 0;
 }

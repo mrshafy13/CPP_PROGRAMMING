@@ -1,48 +1,128 @@
-#include <iostream>
-#include <cstring>
+//Bismillahir Rahmanir Raheem
+#include<iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
+
+const int mx = 1e8;
+
+#define memset(a, b) memset(a,b,sizeof(a));
+#define optimize() ios_base::sync_with_stdio(0);//cin.tie(0);cout.tie(0);
+#define fraction() cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
+#define endl "\n";
 
 int main()
 {
+    optimize();
     int t;
     cin >> t;
-    cin.get();
     while(t--)
     {
-        char answer[50];
-        char reverse[50];
-        gets(answer);
-        int len = strlen(answer);
-        int flag, check;
-        if(answer[0]=='Y')
+        //cout << t << endl;
+        string  str;
+        cin >> str;
+        bool flag = 0;
+        if(str.size() > 2)
         {
-            flag = 0;
-        }
-        else if(answer[0]=='e')
-        {
-            flag = 1;
-        }
-        else if(answer[0]=='s')
-        {
-            flag = 2;
-        }
-
-        if(flag == 0)
-        {
-            for(int i = 0; i<len; i+2)
+            for(int i = 0; i<str.size() - 1;)
             {
-                if(answer[i]=='Y' || answer[i]=='s')
+                if(str[i] == 'Y')
                 {
-                    check = 0;
+                    i++;
+                    if(str[i] == 'e')
+                    {
+                        i++;
+                        if(str[i] == 's')
+                        {
+                            i++;
+                            flag = 1;
+                        }
+                        else
+                        {
+                            flag = 0;
+                            break;
+                        }
+                    }
                 }
-                else
+                else if(str[i] == 'e')
                 {
-                    check = 1;
+                    i++;
+                    if(str[i] =='s')
+                    {
+                        i++;
+                        if(str[i] == 'Y')
+                        {
+                            
+                            flag = 1;
+                        }
+                        else
+                        {
+                            flag = 0;
+                            break;
+                        }
+                    }
                 }
+                else if(str[i] == 's')
+                {
+                    i++;
+                    if(str[i] == 'Y')
+                    {
+                        i++;
+                        if(str[i]=='e')
+                        {
+                            
+                            flag  = 1;
+                        }
+                        else
+                        {
+                            flag = 0;
+                            break;
+                        }
+                    }
+                }
+
+            }
+        }
+        else if(str.size() == 2)
+        {
+            if(str[0] == 'Y' && str[1] == 'e')
+            {
+                flag = 1;
+            }
+            else if(str[0] == 's' && str[1] == 'Y')
+            {
+                flag = 1;
+            }
+            else if(str[0]=='e' && str[1]== 's')
+            {
+                flag = 1;
+            }
+            else
+            {
+                flag  = 0;
+            }
+        }
+        else
+        {
+            if(str[0] == 'Y' or str[0] == 'e' or str[0] == 's')
+            {
+                continue;
+            }
+            else
+            {
+                flag = 0;
             }
         }
 
+        if(flag)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
 
-    }
+    }    
     return 0;
 }
