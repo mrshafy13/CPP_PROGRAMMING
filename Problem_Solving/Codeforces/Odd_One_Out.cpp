@@ -1,3 +1,8 @@
+/**
+ * This C++ program takes input of three numbers and finds the number that occurs only once among them.
+ * 
+ * @return The main function returns an integer value, which is 0 in this case.
+ */
 //Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
