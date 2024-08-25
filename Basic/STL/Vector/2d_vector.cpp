@@ -17,10 +17,10 @@ int main()
     {
         for (auto g : u)
         {
-            cout << g << endl;
+            cout << g <<" ";
         }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }

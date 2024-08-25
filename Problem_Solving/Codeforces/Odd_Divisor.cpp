@@ -30,7 +30,7 @@ bool is_prime(unsigned long long n)
 };
 
 #define memset(a, b) memset(a, b, sizeof(a));
-#define optimize() ios_base::sync_with_stdio(0); // cin.tie(0);cout.tie(0);
+#define optimize() ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0);
 #define fraction()                \
     cout.unsetf(ios::floatfield); \
     cout.precision(10);           \
@@ -54,27 +54,35 @@ int main()
         }
         else
         {
-            for (unsigned long long i = 3; i <= 99; i = i + 2)
-            {
-                if (n % i == 0)
-                {
-                    flag = 1;
-                    break;
-                }
-                else
-                {
-                    flag = 0;
-                }
-            }
-            if (flag)
+            if(n%2 != 0)
             {
                 cout << "YES" << endl;
             }
             else
             {
-                cout << "NO" << endl;
+                while(n > 3)
+                {
+                    n = n/2;
+                    if(n%2 != 0)
+                    {
+                        flag = 1;
+                        break;
+                    }
+                    else 
+                    {
+                        flag = 0;
+                    }
+                }
+                if(flag)
+                {
+                    cout << "YES" << endl;
+                }
+                else
+                {
+                    cout << "NO" << endl;
+                }
             }
-        }
+        }    
     }
 
     return 0;

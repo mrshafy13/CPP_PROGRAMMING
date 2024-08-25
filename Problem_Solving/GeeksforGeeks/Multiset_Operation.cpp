@@ -58,18 +58,12 @@ void multisetDisplay(multiset<int>s)
 void multisetErase(multiset<int>&s,int x)
 {
     //If and else condition to erase x from multiset
-    bool f= 0;
-    for(auto u: s)
+    
+    if(s.count(x) >= 1)
     {
-        if(u == x)
-        {
-            s.erase(x);
-            f = 1;
-            break;
-        }
+        cout<<"erased "<<x;
+        s.erase(x);
     }
-    if(f == 1)
-    cout<<"erased "<<x;
     else
     cout<<"not found";
     
